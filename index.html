@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diva Patong Hotel: Boutique Stay in the Heart of Patong, Phuket</title>
+<meta name="description" content="Diva Patong Hotel: ten room types, a pool and spa, and Stella Bar, steps from Patong Beach and Bangla Road, Phuket.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Inter+Tight:wght@400;500&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <div class="crosshair" id="crosshair"><i class="v"></i><i class="h"></i></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav-mark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+      <span>Diva Patong Hotel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="all-rooms.html">Rooms</a></li>
+      <li><a href="attractions.html">Attractions</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="book.html" class="nav-cta">Book online</a>
+  </header>
+
+  <main>
+
+    <section class="hero" data-nav-theme="light">
+      <!-- Aerial View of Phuket's Stunning Coastline, IHP Production, via Pexels (Pexels License).
+           Full credit + source URL in assets/credits.md. -->
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero/hero-patong.webp">
+        <source src="assets/hero/hero-patong.mp4?v=6" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <p class="hero-caption">Two minutes from the sand. Ten from Bangla Road.</p>
+      <a href="book.html" class="hero-cta">Check rates</a>
+      <button type="button" class="hero-video-toggle" id="heroVideoToggle" aria-label="Pause background video">
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"/></svg>
+      </button>
+      <div class="hero-title">
+        <h1 class="hero-word" aria-label="Diva">
+          <span style="animation-delay:.05s">D</span><span style="animation-delay:.12s">i</span><span style="animation-delay:.19s">v</span><span style="animation-delay:.26s">a</span>
+        </h1>
+        <p class="hero-sub">Patong Hotel</p>
+      </div>
+      <div class="hero-scroll"><span class="line"></span>Scroll</div>
+    </section>
+
+    <div class="mist-wrap">
+      <div class="mist" id="mist" data-nav-theme="dark"></div>
+      <div class="mist-spacer"></div>
+    </div>
+
+    <section class="intro section-pad" data-nav-theme="dark">
+      <div class="wrap intro-grid">
+        <h2 class="intro-heading reveal">Comfort at the centre of Patong</h2>
+        <div class="intro-body">
+          <p>Diva Patong Hotel sits on Nanai Road, close enough to Bangla Road to walk, close enough to the beach to hear it. An open-air pool, an in-house spa, and a kitchen running Thai, Indian, Italian and vegan menus side by side mean you rarely need to leave the building. Until you want to.</p>
+          <p>Ten room types, from a simple double to a rooftop penthouse with its own bar and jacuzzi. Pick the one that matches how loud you want the trip to be.</p>
+          <div class="coord">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9.5"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>
+            7°53′N 98°17′E (approx.), Nanai Road, Patong Beach
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms section-pad" id="rooms" data-nav-theme="dark">
+      <div class="wrap rooms-heading">
+        <h2 class="reveal">Ten rooms, real photos</h2>
+        <p>Every category the hotel actually has, shot on-site, not stock.</p>
+        <a href="all-rooms.html">View all rooms and penthouses</a>
+      </div>
+      <div class="rooms-pin">
+       <div class="rooms-pin-inner">
+        <button type="button" class="carousel-arrow prev" data-carousel="roomsTrack" aria-label="Previous room" aria-controls="roomsTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-arrow next" data-carousel="roomsTrack" aria-label="Next room" aria-controls="roomsTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="rooms-track" id="roomsTrack" tabindex="0" role="group" aria-label="Room types, scrollable">
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/standard.jpg" alt="Standard room at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Standard</h3>
+              <p class="room-price">฿7,999 / night</p>
+              <p>A clean, simple double for travellers who plan to spend most of their time outside it.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/standard-twin.jpg" alt="Standard Twin Bed, City View room at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Standard Twin Bed<br>City View</h3>
+              <p class="room-price">Ask for rates</p>
+              <p>Two singles instead of one double, same floor, same view over the city side.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/standard-triple.jpg" alt="Standard Triple Room at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Standard Triple<br>City View</h3>
+              <p class="room-price">฿9,999 / night</p>
+              <p>A double and a single sharing one room, no elevator on this floor. Worth knowing before you book.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/superior.jpg" alt="Superior Room, City View at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Superior<br>City View</h3>
+              <p class="room-price">฿8,599 / night</p>
+              <p>A little more space and a little more quiet, one floor up from Standard.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/delux-pool-view.jpg" alt="Deluxe Room, Pool View at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Deluxe<br>Pool View</h3>
+              <p class="room-price">฿9,999 / night</p>
+              <p>Stone-wall accent, a look down over the pool, and the same quiet as Superior.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/delux-twin-pool-view.jpg" alt="Deluxe Twin, Pool View at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Deluxe Twin<br>Pool View</h3>
+              <p class="room-price">Ask for rates</p>
+              <p>Deluxe's pool-side position, split across two beds instead of one.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/quadruple.jpg" alt="Deluxe Quadruple room at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Deluxe Quadruple</h3>
+              <p class="room-price">฿12,999 / night</p>
+              <p>Sleeps four comfortably, built for friends splitting a room, not families forcing it.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/connecting-family-pool-view.jpg" alt="2 Connecting Family Room, Pool View at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>2 Connecting Rooms<br>Pool View</h3>
+              <p class="room-price">฿17,999 / night</p>
+              <p>Two rooms with a shared door between them, both looking down over the pool. Privacy when you want it, company when you don't.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/penthouse.jpg" alt="Rooftop Sea View Penthouse at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Rooftop Penthouse<br>w/ Jacuzzi</h3>
+              <p class="room-price">฿29,999 / night</p>
+              <p>The round bed suite, top floor, with a view over the roofs to the Andaman Sea.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/images/rooms/penthouse-with-bar.jpg" alt="Rooftop Sea View Penthouse with Private Bar at Diva Patong"></div>
+            <div class="room-card-inner">
+              <h3>Rooftop Penthouse<br>w/ Jacuzzi &amp; Private Bar</h3>
+              <p class="room-price">฿25,999 / night</p>
+              <p>The top-floor suite with its own bar built in. Bottles included, nobody has to leave for another round.</p>
+            </div>
+          </article>
+
+        </div>
+       </div>
+      </div>
+      <div class="wrap rooms-hint"><span class="line"></span>Keep scrolling: the rooms move with you</div>
+    </section>
+
+    <section class="experience section-pad" id="experience" data-nav-theme="dark">
+      <div class="wrap">
+        <div class="exp-head">
+          <h2 class="reveal">Pool, spa &amp; Stella Bar</h2>
+          <p>The three reasons guests say they didn't need to leave for a whole afternoon.</p>
+        </div>
+        <div class="exp-grid">
+          <div class="exp-item">
+            <img class="exp-item-img" src="assets/property/pool.webp" alt="The pool at Diva Patong">
+            <h3>The Pool</h3>
+            <p>Open-air, ringed by loungers that fill up by mid-morning. Towels at the desk, no extra charge.</p>
+          </div>
+          <div class="exp-item">
+            <h3>The Spa</h3>
+            <p>Traditional Thai massage and treatments on-site, no taxi to a wellness centre required.</p>
+          </div>
+          <div class="exp-item">
+            <img class="exp-item-img" src="assets/property/stella-bar.webp" alt="The bar and dining area at Diva Patong">
+            <h3>Stella Bar</h3>
+            <p>Pool tables, cold drinks, and a crowd that doesn't thin out until late. Attached to the restaurant, open to the street.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial section-pad" data-nav-theme="light">
+      <div class="wrap">
+        <blockquote>
+          "Ten minutes from Bangla Road and I still slept fine. That's the trick of this place."
+          <cite>Guest review, illustrative, to be replaced with a real one</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="rooms section-pad" id="attractions" data-nav-theme="dark">
+      <div class="wrap rooms-heading">
+        <h2 class="reveal">Worth leaving the pool for</h2>
+        <p>Eight places within reach of the hotel, from the beach out front to the hill above the island.</p>
+        <a href="attractions.html">View all attractions</a>
+      </div>
+      <div class="rooms-pin">
+       <div class="rooms-pin-inner">
+        <button type="button" class="carousel-arrow prev" data-carousel="attractionsTrack" aria-label="Previous attraction" aria-controls="attractionsTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-arrow next" data-carousel="attractionsTrack" aria-label="Next attraction" aria-controls="attractionsTrack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="rooms-track" id="attractionsTrack" tabindex="0" role="group" aria-label="Nearby attractions, scrollable">
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/patong-beach.webp" alt="Sunset over Patong Beach, Phuket"></div>
+            <div class="room-card-inner">
+              <h3>Patong Beach</h3>
+              <p class="room-price">Steps from the hotel</p>
+              <p>The beach the whole street is named for. Sand and sun loungers, then the walk back up for a shower before dinner.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/bangla-road-night.webp" alt="Night market street food stalls in Patong"></div>
+            <div class="room-card-inner">
+              <h3>Bangla Road</h3>
+              <p class="room-price">A short walk, after dark</p>
+              <p>Neon, noise, and the reason some guests ask for a room facing away from it. We can point you to it either way.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/jungceylon.webp" alt="Street near Jungceylon shopping centre, Patong"></div>
+            <div class="room-card-inner">
+              <h3>Jungceylon</h3>
+              <p class="room-price">Shopping, air-conditioned</p>
+              <p>Patong's shopping centre: cinema, food court, and a break from the heat when the beach gets old.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/banzaan-market.webp" alt="Fresh seafood market stall in Phuket"></div>
+            <div class="room-card-inner">
+              <h3>Banzaan Market</h3>
+              <p class="room-price">Where the kitchens shop</p>
+              <p>Fresh seafood, fruit, and produce stalls a short walk from Bangla Road. Best early, before the heat sets in.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/freedom-or-karon-beach.webp" alt="Karon Beach, Phuket"></div>
+            <div class="room-card-inner">
+              <h3>Freedom &amp; Karon Beach</h3>
+              <p class="room-price">A short taxi south</p>
+              <p>Two quieter coves for the day you want a beach without Patong's noise.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/old-phuket-town.webp" alt="Sino-Portuguese colonial architecture in Old Phuket Town"></div>
+            <div class="room-card-inner">
+              <h3>Old Phuket Town</h3>
+              <p class="room-price">Worth the taxi</p>
+              <p>Sino-Portuguese shopfronts, coffee, and a slower pace than the coast.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/wat-chalong.webp" alt="Wat Chalong temple, Phuket"></div>
+            <div class="room-card-inner">
+              <h3>Wat Chalong</h3>
+              <p class="room-price">Phuket's most-visited temple</p>
+              <p>Ornate roofs and a working monastery, south of Patong.</p>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-art"><img src="assets/attractions/big-buddha.webp" alt="Big Buddha statue, Phuket"></div>
+            <div class="room-card-inner">
+              <h3>Big Buddha</h3>
+              <p class="room-price">The view from the hilltop</p>
+              <p>Forty-five metres of white marble, with the best panorama on the island.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <div class="wrap rooms-hint"><span class="line"></span>Keep scrolling: same as the rooms above</div>
+    </section>
+
+    <section class="journey section-pad" id="journey" data-nav-theme="light">
+      <div class="wrap">
+        <div class="journey-top">
+          <h2 class="reveal">Getting here</h2>
+          <p>One flight into Phuket, one transfer.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-line"></div>
+          <div class="route-point start">
+            <div class="route-dot"></div>
+            <h3>Phuket Int'l Airport</h3>
+            <p>HKT, 8°07′N 98°19′E (approx.)</p>
+          </div>
+          <div class="route-point end">
+            <div class="route-dot"></div>
+            <h3>Diva Patong Hotel</h3>
+            <p>Nanai Road, 7°53′N 98°17′E (approx.)</p>
+          </div>
+        </div>
+
+        <div class="journey-stats">
+          <div><div class="stat-num">~32km</div><div class="stat-label">Airport to door</div></div>
+          <div><div class="stat-num">~45min</div><div class="stat-label">Average transfer</div></div>
+          <div><div class="stat-num">~5min</div><div class="stat-label">Walk to the beach</div></div>
+          <div><div class="stat-num">10</div><div class="stat-label">Room types</div></div>
+        </div>
+        <p class="journey-note">Distances and times are approximate. Confirm with the hotel when booking a transfer.</p>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=98.291738%2C7.878736%2C98.303738%2C7.886736&amp;layer=mapnik&amp;marker=7.882736%2C98.297738"
+            title="Map showing Diva Patong Hotel at Nanai Road, Patong Beach, Phuket"
+            loading="lazy"></iframe>
+        </div>
+        <p class="map-fallback">If the map above doesn't load: Diva Patong Hotel, Nanai Road, Patong Beach, Phuket, Thailand. See <a href="contact.html" style="color:inherit;">Contact &amp; Location</a> for directions.</p>
+      </div>
+    </section>
+
+    <section class="cta section-pad" id="cta" data-nav-theme="light">
+      <div class="wrap">
+        <h2 class="reveal">Rates change with the season. Stella Bar doesn't close early.</h2>
+        <a href="book.html" class="btn">Book online</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="foot-top">
+      <div>
+        <div class="foot-mark">Diva Patong Hotel</div>
+        <div class="foot-contact">
+          Nanai Road, Patong Beach, Phuket, Thailand<br>
+          +66 (0) 65 740 1917<br>
+          reservation@diva-patong-hotel.com
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="all-rooms.html">Rooms</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; Diva Patong Hotel</span>
+      <ul class="foot-legal">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Booking Terms &amp; Cancellation</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

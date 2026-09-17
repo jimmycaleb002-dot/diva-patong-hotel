@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guest Details: Diva Patong Hotel</title>
+<meta name="description" content="Enter your details to request a booking at Diva Patong Hotel.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Inter+Tight:wght@400;500&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <div class="crosshair" id="crosshair"><i class="v"></i><i class="h"></i></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav-mark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+      <span>Diva Patong Hotel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="all-rooms.html">Rooms</a></li>
+      <li><a href="attractions.html">Attractions</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="book.html" class="nav-cta">Book online</a>
+  </header>
+
+  <main>
+    <section class="page-header" data-nav-theme="light">
+      <div class="wrap">
+        <h1>Guest Details</h1>
+        <p>Who is this booking request for?</p>
+        <ul class="booking-steps">
+          <li class="is-done"><span class="n">&#10003;</span> Dates &amp; rooms</li>
+          <li class="is-current"><span class="n">2</span> Guest details</li>
+          <li><span class="n">3</span> Review &amp; payment</li>
+          <li><span class="n">4</span> Confirmation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-pad" data-nav-theme="dark" style="background:var(--white);">
+      <div class="wrap" style="max-width:680px;">
+        <div id="emptyState" class="state-msg is-loading" style="display:none;">
+          You haven't chosen dates or rooms yet. <a href="book.html">Start with dates &amp; rooms</a>.
+        </div>
+
+        <div id="formWrap" style="display:none;">
+          <div id="selectionSummary" class="state-msg is-loading" style="margin-bottom:2rem;"></div>
+
+          <div id="formError" class="state-msg is-error" style="display:none;" role="alert"></div>
+
+          <form id="guestForm" novalidate>
+            <div class="field-row">
+              <div class="field" id="fName">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                <span class="error-msg">Enter your full name.</span>
+              </div>
+              <div class="field" id="fEmail">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="error-msg">Enter a valid email address.</span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field" id="fPhone">
+                <label for="phone">Phone (with country code)</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 555 123 4567" required>
+                <span class="error-msg">Enter a phone number the hotel can reach you on.</span>
+              </div>
+              <div class="field">
+                <label for="arrival">Estimated arrival time (optional)</label>
+                <input type="time" id="arrival" name="arrival">
+              </div>
+            </div>
+            <div class="field">
+              <label for="requests">Special requests (optional)</label>
+              <textarea id="requests" name="requests" placeholder="e.g. a room away from the street, early check-in if possible"></textarea>
+              <span class="hint">Requests are passed on to the hotel but can't be guaranteed.</span>
+            </div>
+
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">
+              <a href="book.html" class="btn-outline-dark">Back</a>
+              <button type="submit" class="btn" id="submitBtn">Continue to review</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-top">
+      <div>
+        <div class="foot-mark">Diva Patong Hotel</div>
+        <div class="foot-contact">
+          Nanai Road, Patong Beach, Phuket, Thailand<br>
+          +66 (0) 65 740 1917<br>
+          reservation@diva-patong-hotel.com
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="all-rooms.html">Rooms</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; Diva Patong Hotel</span>
+      <ul class="foot-legal">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Booking Terms &amp; Cancellation</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/js/rooms-data.js"></script>
+<script src="assets/js/booking.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var state = window.DivaBooking.load();
+  var emptyState = document.getElementById('emptyState');
+  var formWrap = document.getElementById('formWrap');
+
+  if(!state || !state.checkin || !state.checkout || !state.rooms || !state.rooms.length){
+    emptyState.style.display = 'block';
+    return;
+  }
+  formWrap.style.display = 'block';
+
+  var s = window.DivaBooking.computeSummary(state);
+  var roomsText = s.lines.map(function(l){ return l.qty + '× ' + l.room.name; }).join(', ');
+  document.getElementById('selectionSummary').innerHTML =
+    '<strong>' + state.checkin + ' → ' + state.checkout + '</strong> (' + s.nights + ' night' + (s.nights===1?'':'s') + '), ' +
+    roomsText + ', ' + state.adults + ' adult' + (state.adults===1?'':'s') +
+    (state.children ? ', ' + state.children + ' child' + (state.children===1?'':'ren') : '') +
+    '. <a href="book.html">Change</a>';
+
+  // Restore any previously entered guest details (e.g. came back from review).
+  if(state.guest){
+    document.getElementById('fullName').value = state.guest.fullName || '';
+    document.getElementById('email').value = state.guest.email || '';
+    document.getElementById('phone').value = state.guest.phone || '';
+    document.getElementById('arrival').value = state.guest.arrival || '';
+    document.getElementById('requests').value = state.guest.requests || '';
+  }
+
+  var formError = document.getElementById('formError');
+  function clearErr(id){ document.getElementById(id).classList.remove('has-error'); }
+  function setErr(id){ document.getElementById(id).classList.add('has-error'); }
+
+  document.getElementById('guestForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    formError.style.display = 'none';
+    ['fName','fEmail','fPhone'].forEach(clearErr);
+
+    var fullName = document.getElementById('fullName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var arrival = document.getElementById('arrival').value;
+    var requests = document.getElementById('requests').value.trim();
+
+    var problems = [];
+    if(!fullName){ setErr('fName'); problems.push('Enter your full name.'); }
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setErr('fEmail'); problems.push('Enter a valid email address.'); }
+    if(!phone || phone.replace(/[^0-9]/g,'').length < 7){ setErr('fPhone'); problems.push('Enter a phone number the hotel can reach you on.'); }
+
+    if(problems.length){
+      formError.textContent = problems.join(' ');
+      formError.style.display = 'block';
+      formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    state.guest = { fullName: fullName, email: email, phone: phone, arrival: arrival, requests: requests };
+    window.DivaBooking.save(state);
+    location.href = 'review.html';
+  });
+})();
+</script>
+</body>
+</html>

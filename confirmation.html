@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking Request Received: Diva Patong Hotel</title>
+<meta name="description" content="Your booking request for Diva Patong Hotel.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Inter+Tight:wght@400;500&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <div class="crosshair" id="crosshair"><i class="v"></i><i class="h"></i></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav-mark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+      <span>Diva Patong Hotel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="all-rooms.html">Rooms</a></li>
+      <li><a href="attractions.html">Attractions</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="book.html" class="nav-cta">Book online</a>
+  </header>
+
+  <main>
+    <section class="page-header" data-nav-theme="light">
+      <div class="wrap">
+        <h1>Booking Request Prepared</h1>
+        <p>Here's what happens next.</p>
+        <ul class="booking-steps">
+          <li class="is-done"><span class="n">&#10003;</span> Dates &amp; rooms</li>
+          <li class="is-done"><span class="n">&#10003;</span> Guest details</li>
+          <li class="is-done"><span class="n">&#10003;</span> Review &amp; payment</li>
+          <li class="is-current"><span class="n">4</span> Confirmation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-pad" data-nav-theme="dark" style="background:var(--white);">
+      <div class="wrap" style="max-width:680px;">
+        <div id="emptyState" class="state-msg is-loading" style="display:none;">
+          There's no booking request to show. <a href="book.html">Start a new booking</a>.
+        </div>
+
+        <div id="confirmWrap" style="display:none;">
+          <div class="state-msg is-success">
+            <strong>This is a prototype, not a live reservation.</strong> Your request has been prepared and a reference generated below, but this website is not yet connected to the hotel's booking or email systems. Nothing has actually been sent to Diva Patong Hotel yet. To make a real reservation right now, please contact the hotel directly using the details below.
+          </div>
+
+          <div class="receipt-box">
+            <div class="receipt-ref" id="refCode"></div>
+            <p style="margin:0;color:var(--muted);font-size:.85rem;">Prototype reference, not a confirmed reservation number.</p>
+            <dl id="receiptDetails"></dl>
+          </div>
+
+          <h2 style="font-size:1.1rem;text-transform:uppercase;margin-bottom:.6rem;">Confirmation email</h2>
+          <div class="state-msg is-loading" style="margin-bottom:1rem;">
+            <strong>Not sent yet.</strong> This site isn't connected to an email system yet, so nothing has been emailed to you. Once it is, this is exactly what will be sent to the address you provided, including the cancellation disclaimer.
+          </div>
+          <div class="booking-summary" style="position:static;margin-bottom:2rem;">
+            <p style="margin:0 0 .6rem;"><strong>To:</strong> <span id="emailTo"></span></p>
+            <p style="margin:0 0 .8rem;"><strong>Subject:</strong> <span id="emailSubject"></span></p>
+            <pre id="emailBody" style="white-space:pre-wrap;font-family:inherit;font-size:.88rem;color:var(--navy);margin:0;border-top:1px solid rgba(31,42,68,.1);padding-top:.9rem;"></pre>
+          </div>
+
+          <h2 style="font-size:1.1rem;text-transform:uppercase;margin-bottom:.6rem;">To actually book this stay</h2>
+          <p>Call or email the hotel with the dates and rooms above:</p>
+          <p>
+            Phone: <a href="tel:+66657401917">+66 (0) 65 740 1917</a><br>
+            Email: <a href="mailto:reservation@diva-patong-hotel.com">reservation@diva-patong-hotel.com</a>
+          </p>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="index.html" class="btn">Back to home</a>
+            <a href="book.html" class="btn-outline-dark" id="newBookingLink">Start a new booking</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-top">
+      <div>
+        <div class="foot-mark">Diva Patong Hotel</div>
+        <div class="foot-contact">
+          Nanai Road, Patong Beach, Phuket, Thailand<br>
+          +66 (0) 65 740 1917<br>
+          reservation@diva-patong-hotel.com
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="all-rooms.html">Rooms</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; Diva Patong Hotel</span>
+      <ul class="foot-legal">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Booking Terms &amp; Cancellation</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/js/rooms-data.js"></script>
+<script src="assets/js/booking.js"></script>
+<script src="assets/js/email-templates.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var state = window.DivaBooking.load();
+  var emptyState = document.getElementById('emptyState');
+  var confirmWrap = document.getElementById('confirmWrap');
+
+  if(!state || !state.reference){
+    emptyState.style.display = 'block';
+    return;
+  }
+  confirmWrap.style.display = 'block';
+
+  document.getElementById('refCode').textContent = state.reference;
+
+  var s = window.DivaBooking.computeSummary(state);
+  var roomsText = s.lines.map(function(l){ return l.qty + '× ' + l.room.name; }).join(', ');
+  var dl = document.getElementById('receiptDetails');
+  dl.innerHTML =
+    '<dt>Dates</dt><dd>' + state.checkin + ' → ' + state.checkout + ' (' + s.nights + ' night' + (s.nights===1?'':'s') + ')</dd>' +
+    '<dt>Rooms</dt><dd>' + roomsText + '</dd>' +
+    '<dt>Guests</dt><dd>' + state.adults + ' adult' + (state.adults===1?'':'s') + (state.children ? ', ' + state.children + ' child' + (state.children===1?'':'ren') : '') + '</dd>' +
+    '<dt>Subtotal</dt><dd>' + window.DivaBooking.formatTHB(s.subtotal) + (s.hasUnconfirmed ? ' (partial, some rates unconfirmed)' : '') + '</dd>' +
+    '<dt>Guest</dt><dd>' + state.guest.fullName + ', ' + state.guest.email + ', ' + state.guest.phone + '</dd>';
+
+  if(window.DivaEmailTemplates){
+    var email = window.DivaEmailTemplates.bookingConfirmationEmail(state);
+    document.getElementById('emailTo').textContent = email.to;
+    document.getElementById('emailSubject').textContent = email.subject;
+    document.getElementById('emailBody').textContent = email.body;
+  }
+
+  document.getElementById('newBookingLink').addEventListener('click', function(){
+    window.DivaBooking.clear();
+  });
+})();
+</script>
+</body>
+</html>

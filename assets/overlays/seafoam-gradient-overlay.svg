@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="foam" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8FBFAE" stop-opacity="0.5"/>
+      <stop offset="35%" stop-color="#8FBFAE" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#8FBFAE" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="foamCorner" cx="100%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#8FBFAE" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#8FBFAE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#foam)"/>
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#foamCorner)"/>
+</svg>

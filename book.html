@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Your Stay: Diva Patong Hotel</title>
+<meta name="description" content="Choose your dates and rooms at Diva Patong Hotel, Patong Beach, Phuket.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Inter+Tight:wght@400;500&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <div class="crosshair" id="crosshair"><i class="v"></i><i class="h"></i></div>
+
+  <header class="nav">
+    <a href="index.html" class="nav-mark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/></svg>
+      <span>Diva Patong Hotel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="all-rooms.html">Rooms</a></li>
+      <li><a href="attractions.html">Attractions</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="book.html" class="nav-cta">Book online</a>
+  </header>
+
+  <main>
+    <section class="page-header" data-nav-theme="light">
+      <div class="wrap">
+        <h1>Book Your Stay</h1>
+        <p>Choose your dates, then pick your rooms. Nothing is charged online. You'll review everything before sending a request.</p>
+        <ul class="booking-steps">
+          <li class="is-current"><span class="n">1</span> Dates &amp; rooms</li>
+          <li><span class="n">2</span> Guest details</li>
+          <li><span class="n">3</span> Review &amp; payment</li>
+          <li><span class="n">4</span> Confirmation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-pad" data-nav-theme="dark" style="background:var(--white);">
+      <div class="wrap">
+        <div id="formError" class="state-msg is-error" style="display:none;" role="alert"></div>
+
+        <form id="datesForm" novalidate>
+          <h2 style="font-size:1.3rem;text-transform:uppercase;margin-bottom:1.2rem;">Dates &amp; guests</h2>
+          <div class="field-row field-row-3">
+            <div class="field" id="fCheckin">
+              <label for="checkin">Check-in</label>
+              <input type="date" id="checkin" name="checkin" required>
+              <span class="error-msg">Choose a check-in date.</span>
+            </div>
+            <div class="field" id="fCheckout">
+              <label for="checkout">Check-out</label>
+              <input type="date" id="checkout" name="checkout" required>
+              <span class="error-msg">Check-out must be after check-in.</span>
+            </div>
+            <div class="field">
+              <label for="adults">Adults</label>
+              <input type="number" id="adults" name="adults" min="1" max="12" value="2" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="children">Children</label>
+              <input type="number" id="children" name="children" min="0" max="12" value="0">
+              <span class="hint">Under 12. This site doesn't yet confirm child policies. Ask the hotel directly.</span>
+            </div>
+          </div>
+        </form>
+
+        <div style="display:grid;grid-template-columns:1fr;gap:2.5rem;margin-top:2.5rem;" id="bookingLayout">
+          <div>
+            <h2 style="font-size:1.3rem;text-transform:uppercase;margin-bottom:.4rem;">Choose your rooms</h2>
+            <p style="color:var(--muted);font-size:.92rem;margin-bottom:.5rem;">Select one or more room types and how many of each. Two room types don't have a confirmed nightly rate yet. You can still request them.</p>
+            <div class="room-pick-grid" id="roomPickGrid"></div>
+          </div>
+          <div>
+            <div class="booking-summary" id="summaryBox">
+              <h3>Your selection</h3>
+              <div id="summaryContent"><p class="summary-empty">Pick your dates and at least one room to continue.</p></div>
+              <button type="button" class="btn" id="continueBtn" style="width:100%;margin-top:1.2rem;">Continue to guest details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-top">
+      <div>
+        <div class="foot-mark">Diva Patong Hotel</div>
+        <div class="foot-contact">
+          Nanai Road, Patong Beach, Phuket, Thailand<br>
+          +66 (0) 65 740 1917<br>
+          reservation@diva-patong-hotel.com
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="all-rooms.html">Rooms</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; Diva Patong Hotel</span>
+      <ul class="foot-legal">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Booking Terms &amp; Cancellation</a></li>
+      </ul>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/js/rooms-data.js"></script>
+<script src="assets/js/booking.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var grid = document.getElementById('roomPickGrid');
+  var checkinEl = document.getElementById('checkin');
+  var checkoutEl = document.getElementById('checkout');
+  var adultsEl = document.getElementById('adults');
+  var childrenEl = document.getElementById('children');
+  var summaryContent = document.getElementById('summaryContent');
+  var formError = document.getElementById('formError');
+
+  var today = new Date();
+  var todayStr = today.toISOString().slice(0,10);
+  checkinEl.min = todayStr;
+  checkoutEl.min = todayStr;
+
+  // Restore any prior selection (e.g. user came back from a later step).
+  var existing = window.DivaBooking.load() || { rooms: [] };
+  if(existing.checkin) checkinEl.value = existing.checkin;
+  if(existing.checkout) checkoutEl.value = existing.checkout;
+  if(existing.adults) adultsEl.value = existing.adults;
+  if(existing.children != null) childrenEl.value = existing.children;
+
+  var qty = {};
+  (existing.rooms || []).forEach(function(r){ qty[r.slug] = r.qty; });
+
+  // Arriving from a room-detail page's "Check availability" link: pre-select
+  // that one room so the visitor doesn't have to find it again in the grid.
+  var preselect = new URLSearchParams(location.search).get('room');
+  if(preselect && window.DivaBooking.roomBySlug(preselect)){
+    qty[preselect] = Math.max(1, qty[preselect] || 0);
+  }
+
+  grid.innerHTML = window.DIVA_ROOMS.map(function(r){
+    return '<div class="room-pick">' +
+      '<img src="' + r.img + '" alt="' + r.imgAlt + '" loading="lazy">' +
+      '<div class="room-pick-body">' +
+        '<h3>' + r.name + '</h3>' +
+        '<p class="room-pick-price">' + r.priceLabel + '</p>' +
+        '<div class="room-pick-qty">' +
+          '<button type="button" class="qty-btn" data-slug="' + r.slug + '" data-dir="-1" aria-label="Fewer ' + r.name + '">−</button>' +
+          '<span class="qty-val" id="qty-' + r.slug + '">' + (qty[r.slug] || 0) + '</span>' +
+          '<button type="button" class="qty-btn" data-slug="' + r.slug + '" data-dir="1" aria-label="More ' + r.name + '">+</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  function currentState(){
+    var rooms = window.DIVA_ROOMS.filter(function(r){ return qty[r.slug] > 0; })
+      .map(function(r){ return { slug: r.slug, qty: qty[r.slug] }; });
+    return {
+      checkin: checkinEl.value,
+      checkout: checkoutEl.value,
+      adults: parseInt(adultsEl.value,10) || 1,
+      children: parseInt(childrenEl.value,10) || 0,
+      rooms: rooms
+    };
+  }
+
+  function renderSummary(){
+    var state = currentState();
+    var s = window.DivaBooking.computeSummary(state);
+    if(s.totalRooms === 0 || !state.checkin || !state.checkout || s.nights <= 0){
+      summaryContent.innerHTML = '<p class="summary-empty">Pick your dates and at least one room to continue.</p>';
+      return;
+    }
+    var html = '<div class="summary-line"><span>' + s.nights + ' night' + (s.nights===1?'':'s') + '</span><span>' + state.adults + ' adult' + (state.adults===1?'':'s') + (state.children ? ', ' + state.children + ' child' + (state.children===1?'':'ren') : '') + '</span></div>';
+    s.lines.forEach(function(l){
+      var priceText = l.lineTotal != null ? window.DivaBooking.formatTHB(l.lineTotal) : 'Rate TBC';
+      html += '<div class="summary-line"><span>' + l.qty + '× ' + l.room.name + '</span><span>' + priceText + '</span></div>';
+    });
+    html += '<div class="summary-line total"><span>Subtotal</span><span>' + window.DivaBooking.formatTHB(s.subtotal) + '</span></div>';
+    if(s.hasUnconfirmed){
+      html += '<p class="summary-note">One or more selected rooms don\'t have a confirmed rate yet, so this subtotal is partial. The hotel will confirm the full total.</p>';
+    } else {
+      html += '<p class="summary-note">Excludes any taxes or fees the hotel may add, not yet confirmed for this site.</p>';
+    }
+    summaryContent.innerHTML = html;
+  }
+
+  grid.addEventListener('click', function(e){
+    var btn = e.target.closest('.qty-btn');
+    if(!btn) return;
+    var slug = btn.getAttribute('data-slug');
+    var dir = parseInt(btn.getAttribute('data-dir'),10);
+    var next = Math.max(0, Math.min(9, (qty[slug] || 0) + dir));
+    qty[slug] = next;
+    document.getElementById('qty-' + slug).textContent = next;
+    renderSummary();
+  });
+
+  [checkinEl, checkoutEl, adultsEl, childrenEl].forEach(function(el){
+    el.addEventListener('input', renderSummary);
+    el.addEventListener('change', renderSummary);
+  });
+
+  function clearFieldError(el){ el.closest('.field').classList.remove('has-error'); }
+  function setFieldError(el){ el.closest('.field').classList.add('has-error'); }
+
+  document.getElementById('continueBtn').addEventListener('click', function(){
+    formError.style.display = 'none';
+    [checkinEl, checkoutEl].forEach(clearFieldError);
+
+    var state = currentState();
+    var problems = [];
+
+    if(!state.checkin){ setFieldError(checkinEl); problems.push('Choose a check-in date.'); }
+    if(!state.checkout){ setFieldError(checkoutEl); problems.push('Choose a check-out date.'); }
+    if(state.checkin && state.checkout && state.checkout <= state.checkin){
+      setFieldError(checkoutEl);
+      problems.push('Check-out must be after check-in.');
+    }
+    if(state.rooms.length === 0){ problems.push('Select at least one room.'); }
+
+    if(problems.length){
+      formError.textContent = problems.join(' ');
+      formError.style.display = 'block';
+      formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var saved = window.DivaBooking.load() || {};
+    saved.checkin = state.checkin;
+    saved.checkout = state.checkout;
+    saved.adults = state.adults;
+    saved.children = state.children;
+    saved.rooms = state.rooms;
+    window.DivaBooking.save(saved);
+    location.href = 'guest-details.html';
+  });
+
+  renderSummary();
+})();
+</script>
+</body>
+</html>
