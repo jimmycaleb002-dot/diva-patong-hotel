@@ -311,3 +311,11 @@
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
   }
 })();
+
+(function(){
+  var imgs=document.querySelectorAll('.gallery img'); if(!imgs.length) return;
+  var d=document.createElement('dialog'); d.className='lightbox'; d.innerHTML='<img alt="">';
+  document.body.appendChild(d); var big=d.firstChild;
+  imgs.forEach(function(i){i.parentNode.addEventListener('click',function(){big.src=i.src;big.alt=i.alt;d.showModal();});});
+  d.addEventListener('click',function(){d.close();});
+})();
